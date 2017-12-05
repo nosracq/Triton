@@ -1,25 +1,32 @@
 
 import React, { Component } from 'react'
-//import logo from './logo.svg';
-//import Letter from './components/Letter.js';
-//import Alphabet from './components/Alphabet.js';
-//import Board from './components/Board.js';
+
+// Theme
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { lightBlue900 } from 'material-ui/styles/colors';
+
+import Navbar from './components/Navbar.js';
+
+// Theme
+const muiTheme = getMuiTheme({
+    palette: {
+      accent1Color: lightBlue900
+    },
+    appBar: {
+        // can inster styling for app bar here
+    },
+  })
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <div className="App">
-          {
-              <p>Welcome!</p>/*}<div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>*/}
-        </div>
-      </div>
+      <MuiThemeProvider muiTheme={muiTheme}>
+        <Navbar />
+        {/* <div className="App">
+          <p>Welcome!</p>
+        </div> */}
+      </MuiThemeProvider>
     );
   }
 }

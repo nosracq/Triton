@@ -4,10 +4,14 @@ import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
-import Toggle from 'material-ui/Toggle';
+//import Toggle from 'material-ui/Toggle';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import NavigationClose from 'material-ui/svg-icons/navigation/close';
+//import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import Drawer from 'material-ui/Drawer';
+
+// Router
+import { BrowserRouter, Route, Link } from 'react-router-dom'
+
 
 class Login extends Component {
   static muiName = 'FlatButton';
@@ -45,38 +49,49 @@ class Navbar extends Component {
         super(props);
         this.state = {
             open: false,
-            logged: true,
+            logged: false,
         };
       }
 
-  handleChange = (event, logged) => {
-    this.setState({logged: logged});
-  };
+//   handleChange = (event, logged) => {
+//     this.setState({logged: logged});
+//   };
+
+  handleLogin = () => {this.setState({ logged: !this.state.logged })}
+
+  handleClose = () => { this.setState({ open: false })}
 
   render() {
     return (
-      <div>
-        {/* <Toggle
-          label="Logged"
-          defaultToggled={true}
-          onToggle={this.handleChange}
-          labelPosition="right"
-          style={{margin: 20}}
-        /> */}
-        <AppBar
-            title="Tritan"
-            iconElementRight={this.state.logged ? <Logged /> : <Login />}
-            onLeftIconButtonClick={() => this.setState({open: !this.state.open})}
-        />
-        <Drawer
-            open={this.state.open}
-            docked={false}
-            width={200}
-            onRequestChange={(open) => this.setState({open})}>
-            <MenuItem>Menu Item</MenuItem>
-            <MenuItem>Menu Item 2</MenuItem>
-        </Drawer>
-      </div>
+        <BrowserRouter>
+            <div>
+                {/* <Toggle
+                label="Logged"
+                defaultToggled={true}
+                onToggle={this.handleChange}
+                labelPosition="right"
+                style={{margin: 20}}
+                /> */}
+                <AppBar
+                    title="Tritan"
+                    iconElementRight={ this.state.logged ? <Logged /> : <Login /> }
+                    onLeftIconButtonClick={ () => this.setState({ open: !this.state.open }) }
+                    onRightIconButtonClick={ this.handleLogin }
+                />
+                <Drawer
+                    open={ this.state.open }
+                    docked={ false }
+                    width={ 200 }
+                    onRequestChange={ (open) => this.setState({ open }) }>
+                    <Link to='/'><MenuItem onClick={ this.handleClose }>Home</MenuItem></Link>
+                    <Link to='/about'><MenuItem onClick={ this.handleClose }>About</MenuItem></Link>
+                </Drawer>
+
+                <Route exact path='/' render={ () => <h1>Home</h1> } />
+                <Route exact path='/about' render={ () => <h1>About</h1> } />
+
+            </div>
+        </BrowserRouter>
     );
   }
 }

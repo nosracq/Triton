@@ -14,7 +14,7 @@ const muiTheme = getMuiTheme({
       accent1Color: lightBlue900
     },
     appBar: {
-        // can inster styling for app bar here
+        // can insert styling for app bar here
     },
   })
 

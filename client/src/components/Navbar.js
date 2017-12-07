@@ -12,13 +12,16 @@ import Drawer from 'material-ui/Drawer';
 // Router
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 
+// Componenets
+import Login from './Login'
 
-class Login extends Component {
+
+class LoginBtn extends Component {
   static muiName = 'FlatButton';
 
   render() {
     return (
-      <FlatButton {...this.props} label="Login" />
+      <Link to='/login'><FlatButton {...this.props} label="Login" /></Link>
     );
   }
 }
@@ -65,16 +68,9 @@ class Navbar extends Component {
     return (
         <BrowserRouter>
             <div>
-                {/* <Toggle
-                label="Logged"
-                defaultToggled={true}
-                onToggle={this.handleChange}
-                labelPosition="right"
-                style={{margin: 20}}
-                /> */}
                 <AppBar
                     title="Tritan"
-                    iconElementRight={ this.state.logged ? <Logged /> : <Login /> }
+                    iconElementRight={ this.state.logged ? <Logged /> : <LoginBtn /> }
                     onLeftIconButtonClick={ () => this.setState({ open: !this.state.open }) }
                     onRightIconButtonClick={ this.handleLogin }
                 />
@@ -89,6 +85,7 @@ class Navbar extends Component {
 
                 <Route exact path='/' render={ () => <h1>Home</h1> } />
                 <Route exact path='/about' render={ () => <h1>About</h1> } />
+                <Route exact path='/login' render={ () => <Login /> } />
 
             </div>
         </BrowserRouter>

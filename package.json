@@ -13,12 +13,13 @@
     },
     "scripts": {
         "start": "concurrently \"npm run server\" \"npm run client\"",
-        "server": "node server.js",
+        "server": "nodemon server.js",
         "client": "node start-client.js"
     },
     "devDependencies": {
         "babel-preset-env": "^1.6.1",
         "babel-register": "^6.26.0",
-        "concurrently": "^3.5.1"
+        "concurrently": "^3.5.1",
+        "nodemon": "^1.12.5"
     }
 }

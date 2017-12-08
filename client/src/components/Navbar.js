@@ -12,9 +12,9 @@ import Drawer from 'material-ui/Drawer';
 // Router
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 
-// Componenets
-import Login from './Login'
-
+// Views
+import GLogin from '../views/GLogin'
+import Login from '../views/Login'
 
 class LoginBtn extends Component {
   static muiName = 'FlatButton';
@@ -49,11 +49,11 @@ Logged.muiName = 'IconMenu';
  */
 class Navbar extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             open: false,
             logged: false,
-        };
+        }
       }
 
 //   handleChange = (event, logged) => {

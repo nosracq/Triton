@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import { GoogleLogin } from 'react-google-login-component';
 
-class Login extends Component{
+class GLogin extends Component{
 
-  constructor (props, context) {
-    super(props, context);
-  }
+  // constructor (props, context) {
+  //   super(props, context);
+  // }
 
   responseGoogle (googleUser) {
     var id_token = googleUser.getAuthResponse().id_token;
@@ -28,4 +28,4 @@ class Login extends Component{
 
 }
 
-export default Login;
+export default GLogin;

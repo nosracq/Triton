@@ -5,6 +5,7 @@
 const express = require('express')
 const routes = require('./routes')
 const bodyParser = require('body-parser')
+const cors = require('cors')
 //and create our instances
 const app = express()
 //set our port to either a predetermined port number if you have set
@@ -12,8 +13,10 @@ const app = express()
 //const port = process.env.API_PORT || 3001
 //now we should configure the API to use bodyParser and look for
 //JSON data in the request body
-app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+// app.use(bodyParser.json())
+app.use(cors())
 //To prevent errors from Cross Origin Resource Sharing, we will set
 //our headers to allow CORS with middleware like so:
 // app.use(function(req, res, next) {

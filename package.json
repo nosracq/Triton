@@ -6,7 +6,9 @@
         "env"
     ],
     "dependencies": {
+        "bcrypt": "^1.0.3",
         "body-parser": "^1.18.2",
+        "cors": "^2.8.4",
         "express": "4.13.3",
         "fs": "0.0.2",
         "mongoose": "^4.13.6"

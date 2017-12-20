@@ -13,7 +13,7 @@ import Drawer from 'material-ui/Drawer';
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 
 // Views
-import GLogin from '../views/GLogin'
+//import GLogin from '../views/GLogin'
 import Login from '../views/Login'
 
 class LoginBtn extends Component {
@@ -85,7 +85,7 @@ class Navbar extends Component {
 
                 <Route exact path='/' render={ () => <h1>Home</h1> } />
                 <Route exact path='/about' render={ () => <h1>About</h1> } />
-                <Route exact path='/login' render={ () => <Login /> } />
+                <Route exact path='/login' render={ () => <Login logged={this.state.logged}/> } />
 
             </div>
         </BrowserRouter>

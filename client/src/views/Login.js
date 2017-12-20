@@ -13,7 +13,36 @@ class Login extends Component {
       }
     }
 
-    handleSubmit = () => {}
+    handleSubmit = () => {
+        // var myHeaders = new Headers({
+        //     'Content-Type': 'application/json',
+        //     'Accept': 'application/json'
+        //   });
+        // var pWord = this.state.password
+        // var uName = this.state.username
+        fetch('http://localhost:3001/api/login', {
+            method: 'POST',
+            // headers: myHeaders,
+            // mode: 'no-cors',
+            body: JSON.stringify({
+                username: this.state.username,
+                password: this.state.password
+                // test: 'bodyTest'
+            }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then((res) => {
+            // if (res.status === 200) this.props.logged = true
+            if (res.ok) {
+                console.log('got good response')
+            }
+            else {
+                console.log('something went wrong')
+            }
+        })
+    }
 
     handleRegister = () => {}
 
